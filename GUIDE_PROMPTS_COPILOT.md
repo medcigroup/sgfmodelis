@@ -1,276 +1,142 @@
-# 🤖 Guide d'utilisation de GitHub Copilot pour la Recette SIG
+# Guide des Prompts Copilot pour la Recette
 
-## 📋 Dépôt : medcigroup/sgfmodelis
-
-Ce document contient les **prompts optimisés** pour utiliser GitHub Copilot afin de générer automatiquement vos rapports de recette.
+Ce guide contient des exemples de prompts optimisés pour utiliser GitHub Copilot dans le cadre de la recette du projet sgfmodelis.
 
 ---
 
-## 🎯 Prompt Principal - Génération Automatique de Rapports
+## 🔍 Prompt pour Rapport de Session de Recette
 
-Copiez-collez ce prompt dans GitHub Copilot Chat à chaque session :
+Pour générer un rapport de session de recette :
 
 ```
-Je travaille sur la recette du projet SIG avec le dépôt medcigroup/sgfmodelis.
+@copilot Génère-moi un rapport de session de recette pour medcigroup/sgfmodelis.
 
-Je vais te donner mes retours de tests en langage simple et tu devras :
-1. Structurer mes retours selon les templates d'issues du dépôt
-2. Créer automatiquement les issues GitHub correspondantes
-3. Utiliser les bons labels et la bonne catégorisation
+Module testé : [nom du module]
+Date : [date]
+Testeur : [nom]
 
-Types de retours possibles :
-- 🐛 Bugs/Anomalies
-- ✅ Validations de fonctionnalités (conforme/non-conforme)
-- 💡 Demandes d'amélioration
-- 📋 Autres retours
+Scénarios testés :
+1. [scénario 1]
+2. [scénario 2]
 
-Pour chaque retour, extrais et structure automatiquement :
-- La description claire du problème/validation
-- La sévérité/priorité
-- Le module concerné
-- Les étapes de reproduction (si bug)
-- L'environnement de test
-- Les recommandations
+Résultats :
+- [résultat 1]
+- [résultat 2]
 
-Dépôt cible : medcigroup/sgfmodelis
+Bugs identifiés :
+1. [bug 1]
+2. [bug 2]
 
-Es-tu prêt à recevoir mes retours de recette ?
+Format : Markdown avec sections claires
 ```
 
 ---
 
-## 📝 Templates de Prompts par Type de Retour
+## 📊 Prompt pour Présentation de Réunion Journalière
 
-### 1️⃣ Pour un Bug/Anomalie
+Pour générer automatiquement une présentation de vos tests du jour :
 
-**Format simplifié :**
 ```
-[BUG] Description courte du problème
-- Module : [nom du module]
-- Gravité : critique/majeur/mineur/cosmétique
-- Navigateur/Environnement : [détails]
-- Ce qui se passe : [comportement observé]
-- Ce qui devrait se passer : [comportement attendu]
-```
+@copilot Génère-moi une présentation pour ma réunion journalière sur medcigroup/sgfmodelis.
 
-**Exemple concret :**
-```
-[BUG] La carte ne s'affiche pas au zoom
-- Module : Cartographie
-- Gravité : majeur
-- Navigateur : Chrome v120
-- Ce qui se passe : Écran blanc quand je clique sur zoom +
-- Ce qui devrait se passer : La carte devrait zoomer normalement
-```
+Date : [date du jour]
+Modules testés aujourd'hui : [liste des modules]
 
----
+Résumé de mes tests :
 
-### 2️⃣ Pour une Validation de Fonctionnalité
+BUGS TROUVÉS :
+1. [description courte bug 1]
+2. [description courte bug 2]
 
-**Format simplifié :**
-```
-[VALIDATION] Nom de la fonctionnalité testée
-- Statut : Conforme ✅ / Non-conforme ❌
-- Critères testés : [liste]
-- Points de non-conformité (si applicable) : [détails]
-- Environnement : [version, navigateur, date]
-```
+VALIDATIONS :
+1. [fonctionnalité] - Conforme ✅
+2. [fonctionnalité] - Non-conforme ❌ - raison
 
-**Exemple concret :**
-```
-[VALIDATION] Import de fichiers GeoJSON
-- Statut : Non-conforme ❌
-- Critères testés : 
-  * Import fichier < 10MB : OK ✅
-  * Affichage sur carte : KO ❌
-  * Export après import : Non testé
-- Points de non-conformité : Les couches importées ne s'affichent pas
-- Environnement : v2.1.0, Firefox, 18/12/2025
+AMÉLIORATIONS PROPOSÉES :
+1. [amélioration 1]
+
+BLOQUANTS :
+- [Si des points bloquants]
+
+PROCHAINES ÉTAPES :
+- [Ce qui reste à tester]
+
+Format souhaité : [Markdown/PowerPoint/PDF]
 ```
 
 ---
 
-### 3️⃣ Pour une Demande d'Amélioration
+## 📈 Prompt pour Rapport Hebdomadaire
 
-**Format simplifié :**
-```
-[AMÉLIORATION] Titre de l'amélioration
-- Module : [nom]
-- Priorité : haute/moyenne/basse
-- Situation actuelle : [comment ça fonctionne maintenant]
-- Amélioration souhaitée : [ce qui serait mieux]
-- Bénéfice : [pourquoi c'est important]
-```
+Pour un résumé de toute la semaine :
 
-**Exemple concret :**
 ```
-[AMÉLIORATION] Ajout d'un bouton "Annuler" dans l'import
-- Module : Import de données
-- Priorité : moyenne
-- Situation actuelle : Impossible d'annuler un import en cours
-- Amélioration souhaitée : Bouton pour stopper l'import
-- Bénéfice : Évite d'attendre la fin d'un gros fichier en erreur
-```
+@copilot Génère-moi un rapport hebdomadaire de recette pour medcigroup/sgfmodelis.
 
----
+Semaine du : [date début] au [date fin]
 
-### 4️⃣ Pour un Autre Retour
+Statistiques :
+- Nombre total de tests effectués : [X]
+- Bugs critiques : [X]
+- Bugs majeurs : [X]  
+- Bugs mineurs : [X]
+- Fonctionnalités validées : [X]
+- Fonctionnalités non-conformes : [X]
+- Améliorations proposées : [X]
 
-**Format simplifié :**
-```
-[RETOUR] Sujet du retour
-- Type : observation/question/documentation/suggestion
-- Importance : haute/moyenne/basse
-- Description : [détails]
-- Suggestion éventuelle : [recommandation]
-```
+Points marquants :
+[Listez les éléments importants de la semaine]
 
-**Exemple concret :**
-```
-[RETOUR] Documentation manquante sur les formats supportés
-- Type : documentation
-- Importance : moyenne
-- Description : Pas d'info sur quels formats de fichiers sont acceptés
-- Suggestion : Ajouter une page d'aide avec la liste des formats
+Bloquants en cours :
+[Liste des bloquants non résolus]
+
+Format : Présentation avec graphiques et tableaux de synthèse
 ```
 
 ---
 
-## 🚀 Prompts pour Traitement par Lot
+## 🎤 Prompt pour Présentation Exécutive (Management)
 
-### Créer plusieurs issues d'un coup
-
-```
-Je vais te donner plusieurs retours de recette en une fois. 
-Pour chacun, crée une issue séparée dans medcigroup/sgfmodelis.
-
-Retours :
-
-1. [BUG] La recherche par adresse ne fonctionne pas
-   Module: Recherche, Gravité: majeur, Chrome v120
-   Erreur "Aucun résultat" même avec des adresses valides
-
-2. [VALIDATION] Export PDF - Non-conforme
-   Le PDF généré ne contient pas la légende de la carte
-   Version 2.1.0, testé le 18/12/2025
-
-3. [AMÉLIORATION] Ajouter un bouton de réinitialisation de la carte
-   Priorité moyenne, pour revenir rapidement à la vue initiale
-
-Crée les 3 issues maintenant.
-```
-
----
-
-## 📊 Prompt pour Rapport de Session de Recette
-
-À la fin d'une session de tests :
+Pour une présentation destinée au management :
 
 ```
-Session de recette terminée pour medcigroup/sgfmodelis.
+@copilot Crée une présentation exécutive de l'avancement de la recette pour medcigroup/sgfmodelis.
 
-Résumé de ma session :
-- Date : [date]
-- Modules testés : [liste]
-- Nombre de bugs trouvés : [X]
-- Nombre de validations : [X]
-- Nombre d'améliorations proposées : [X]
+Période : [dates]
 
-Détails de mes retours :
-[Listez vos retours ici]
+Avancement global : [X]%
 
-Actions à faire :
-1. Crée toutes les issues correspondantes
-2. Génère-moi un résumé markdown de la session que je pourrai partager
+Résumé exécutif :
+- Qualité générale : [Bonne/Moyenne/Faible]
+- Risques identifiés : [Liste]
+- Points bloquants : [Liste]
+- Recommandations : [Liste]
+
+Métriques clés :
+- Taux de conformité : [X]%
+- Bugs critiques en cours : [X]
+- Délai estimé pour correction : [X jours]
+
+Format : Présentation concise avec KPI visuels
 ```
 
 ---
 
-## 🎨 Prompt pour Personnalisation
+## 📋 Formats de Présentation Disponibles
 
-Si vous voulez adapter les templates :
-
+### Format 1 : Markdown Simple
 ```
-Pour le dépôt medcigroup/sgfmodelis, j'aimerais :
-- Ajouter un nouveau type de retour : [nom]
-- Modifier le template [bug/validation/amélioration/autre] pour inclure : [champs]
-- Créer un nouveau label : [nom] pour [usage]
-
-Peux-tu m'aider à mettre ça en place ?
+@copilot Génère un rapport markdown pour ma réunion daily sur medcigroup/sgfmodelis avec mes retours d'aujourd'hui : [vos retours]
 ```
 
----
-
-## 💡 Conseils d'Utilisation
-
-### ✅ Bonnes Pratiques
-- **Soyez naturel** : Pas besoin d'utiliser exactement les formats, Copilot comprend le langage naturel
-- **Donnez le contexte** : Module, version, navigateur si pertinent
-- **Un retour à la fois** ou groupez-les clairement
-- **Mentionnez toujours** : `medcigroup/sgfmodelis` au début de votre session
-
-### ❌ À Éviter
-- Ne mélangez pas plusieurs types de retours dans une même description
-- N'oubliez pas de préciser le module concerné
-- Ne soyez pas trop vague (donnez des détails)
-
----
-
-## 🔄 Workflow Recommandé
-
-### Option 1 : Temps Réel
+### Format 2 : Tableau de Bord
 ```
-Pendant vos tests → Notez vos observations → Envoyez à Copilot → Issue créée immédiatement
+@copilot Crée un tableau de bord visuel (markdown avec émojis et indicateurs) de mes tests du jour pour medcigroup/sgfmodelis : [vos retours]
 ```
 
-### Option 2 : Fin de Journée
+### Format 3 : Slides (Markdown)
 ```
-Tests de la journée → Liste de tous vos retours → Envoyez tout à Copilot → Toutes les issues créées d'un coup
-```
-
-### Option 3 : Hebdomadaire
-```
-Semaine de tests → Compilation des retours → Session avec Copilot → Rapport complet + issues
+@copilot Génère des slides en markdown pour ma présentation daily sur medcigroup/sgfmodelis : [vos retours]
 ```
 
 ---
-
-## 📞 Prompt de Démarrage Rapide
-
-**Copiez ceci au début de chaque session :**
-
-```
-@copilot Bonjour ! Je commence une session de recette pour medcigroup/sgfmodelis.
-
-Je vais te donner mes retours de tests et tu créeras automatiquement les issues GitHub structurées.
-
-Premier retour : [votre retour ici]
-```
-
----
-
-## 🆘 Prompt d'Aide
-
-Si vous êtes bloqué :
-
-```
-@copilot J'ai un retour de recette pour medcigroup/sgfmodelis mais je ne sais pas comment le catégoriser.
-
-Voici ce que j'ai observé : [description]
-
-Peux-tu m'aider à structurer ça correctement ?
-```
-
----
-
-## 📌 Rappel Important
-
-**Le dépôt de recette** : `medcigroup/sgfmodelis`  
-**Templates disponibles** : Bug, Validation, Amélioration, Autre  
-**Vous pouvez** : Parler naturellement, Copilot s'occupe de la structure !
-
----
-
-**Créé le** : 2025-12-18  
-**Dernière mise à jour** : 2025-12-18  
-**Responsable recette** : @medcigroup
